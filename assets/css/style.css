@@ -1,0 +1,509 @@
+:root {
+    --ungu: #4b38a0;
+    --ungu-tua: #211a4d;
+    --krem: #fff0dc;
+    --tosca: #7be9e6;
+    --oranye: #eea073;
+    --marun: #aa1a4b;
+    --biru: #2a7494;
+    --gelap: #1e2a3e;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--krem);
+    color: #2b2350;
+}
+
+h1,
+h2,
+h3,
+.judul {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+}
+
+.wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Warna blok (kartu komponen & modul) */
+.warna-tosca {
+    background: var(--tosca);
+    color: #12324a;
+}
+
+.warna-oranye {
+    background: var(--oranye);
+    color: #3a1c0a;
+}
+
+.warna-marun {
+    background: var(--marun);
+    color: #fff;
+}
+
+.warna-biru {
+    background: var(--biru);
+    color: #fff;
+}
+
+/* Tombol */
+.btn {
+    border-radius: 2rem;
+    font-weight: 700;
+    padding: .6rem 1.6rem;
+    border: 0;
+}
+
+.btn-sm {
+    padding: .4rem 1.2rem;
+}
+
+.btn-ungu {
+    background: var(--ungu);
+    color: #fff;
+}
+
+.btn-ungu:hover {
+    background: #3a2a82;
+    color: #fff;
+}
+
+.btn-tosca {
+    background: var(--tosca);
+    color: var(--ungu);
+}
+
+.btn-tosca:hover {
+    background: #5fd6d3;
+    color: var(--ungu);
+}
+
+.btn-putih {
+    background: #fff;
+    color: var(--ungu);
+}
+
+.btn-putih:hover {
+    background: var(--krem);
+    color: var(--ungu);
+}
+
+.link-tosca {
+    color: var(--tosca);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Hero + navbar */
+.hero {
+    background: linear-gradient(135deg, #4b3f9e, #2a7494);
+    color: #fff;
+    border-radius: 2rem;
+    padding: 1.5rem 2rem 2rem;
+    max-width: 1180px;
+    width: calc(100% - 2rem);
+    margin: 2.5rem auto 0;
+}
+
+.hero-kecil {
+    padding-bottom: 1.5rem;
+}
+
+.nav-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.nav-hero a {
+    color: #fff;
+    text-decoration: none;
+    padding: .5rem 1.1rem;
+    border-radius: 2rem;
+    font-weight: 600;
+}
+
+.nav-hero a.aktif {
+    background: #fff;
+    color: var(--ungu);
+}
+
+.nav-hero a.logo {
+    background: var(--krem);
+    color: var(--ungu);
+    border-radius: 0 0 1.2rem 1.2rem;
+    margin-top: -1.5rem;
+    padding: .9rem 1.6rem;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* Tulisan CrowPi besar + robot (ukuran robot ikut font-size lewat satuan em) */
+.hero-judul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(4rem, 17vw, 13rem);
+    line-height: 1.1;
+    color: #f4f5fb;
+    margin-bottom: 1.5rem;
+}
+
+.robot {
+    width: .55em;
+    height: .5em;
+    background: #1f2a44;
+    border-radius: .08em;
+    padding: .04em;
+    margin: 0 .05em;
+    display: inline-block;
+}
+
+.robot-layar {
+    background: var(--krem);
+    width: 100%;
+    height: 100%;
+    border-radius: .05em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .05em;
+}
+
+.mata {
+    display: flex;
+    gap: .05em;
+}
+
+.mata i {
+    display: block;
+    width: .06em;
+    height: .1em;
+    border-radius: 50%;
+}
+
+.mulut {
+    width: .32em;
+    height: .04em;
+    background: var(--marun);
+    border-radius: 1em;
+}
+
+.kartu-mulai {
+    background: #fff;
+    color: #2b2350;
+    border-radius: 1.2rem;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.ikon-roket {
+    flex: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--tosca);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+/* Section umum */
+.label-pill {
+    display: inline-block;
+    background: var(--tosca);
+    color: #12324a;
+    font-size: .8rem;
+    font-weight: 700;
+    padding: .25rem .9rem;
+    border-radius: 2rem;
+}
+
+.judul-seksi {
+    color: var(--ungu);
+    font-size: 2.2rem;
+}
+
+/* Kenalan dulu */
+.kartu-kenal {
+    background: #fff;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.panel-tosca {
+    background: var(--tosca);
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7rem;
+}
+
+/* Komponen */
+.komp {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.8rem;
+    padding: 1.5rem;
+    height: 100%;
+}
+
+.komp::after {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -40px;
+    width: 150px;
+    height: 150px;
+    border: 12px solid rgba(255, 255, 255, .35);
+    border-radius: 50%;
+}
+
+.ikon-bulat {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.ikon-bulat img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+}
+
+/* Tambahkan di bagian bawah style.css kamu (setelah blok .komp / .ikon-bulat).
+   Kalau sebelumnya sudah menempel versi lama, hapus versi lama dulu. */
+
+/* Carousel komponen */
+.carousel-komp {
+    position: relative;
+}
+
+.track-komp {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: .5rem .25rem 1rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.track-komp::-webkit-scrollbar {
+    display: none;
+}
+
+.track-komp:focus-visible {
+    outline: 3px solid var(--ungu);
+    outline-offset: 4px;
+    border-radius: 1.8rem;
+}
+
+/* 3 kartu per layar di desktop, 2 di tablet, 1 (agak mengintip) di HP */
+.track-komp .komp {
+    flex: 0 0 calc((100% - 3rem) / 3);
+    scroll-snap-align: start;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 991px) {
+    .track-komp .komp {
+        flex-basis: calc((100% - 1.5rem) / 2);
+    }
+}
+
+@media (max-width: 576px) {
+    .track-komp .komp {
+        flex-basis: 85%;
+    }
+}
+
+/* Isi kartu */
+.komp .jenis {
+    align-self: flex-start;
+    font-size: .75rem;
+    font-weight: 700;
+    padding: .2rem .8rem;
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, .55);
+    color: #2b2350;
+    margin-bottom: .75rem;
+}
+
+.warna-marun .jenis,
+.warna-biru .jenis {
+    background: rgba(255, 255, 255, .85);
+}
+
+.komp .ikon-bulat,
+.komp h3,
+.komp p {
+    position: relative;
+    z-index: 1;
+}
+
+.emoji-fallback {
+    display: none;
+    font-size: 3rem;
+    line-height: 1;
+}
+
+/* Tombol panah */
+.panah {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 3px solid var(--ungu);
+    background: #fff;
+    color: var(--ungu);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 0 var(--ungu);
+    transition: transform .15s;
+}
+
+.panah:hover {
+    background: var(--tosca);
+}
+
+.panah:active {
+    transform: translateY(calc(-50% + 3px));
+    box-shadow: 0 1px 0 var(--ungu);
+}
+
+.panah:focus-visible {
+    outline: 3px solid var(--ungu);
+    outline-offset: 3px;
+}
+
+.panah-kiri {
+    left: -2rem;
+}
+
+.panah-kanan {
+    right: -2rem;
+}
+
+@media (max-width: 1260px) {
+    .panah-kiri {
+        left: -.5rem;
+    }
+
+    .panah-kanan {
+        right: -.5rem;
+    }
+}
+
+.petunjuk-geser {
+    color: #6b5f93;
+    font-size: .9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .track-komp {
+        scroll-behavior: auto;
+    }
+
+    .panah {
+        transition: none;
+    }
+}
+
+/* Modul */
+.seksi-gelap {
+    background: var(--ungu-tua);
+    color: #fff;
+    padding: 4rem 0;
+    margin-top: 3rem;
+}
+
+.kartu-modul {
+    background: #302659;
+    border-radius: 1.4rem;
+    overflow: hidden;
+    height: 100%;
+}
+
+.kartu-modul .atas {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+}
+
+.kartu-modul .bawah {
+    padding: 1rem;
+}
+
+/* Bantuan (override accordion Bootstrap) */
+.accordion-item {
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid #e8d6bd;
+}
+
+.accordion-button {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #2b2350;
+    font-size: 1.15rem;
+    padding-left: 0;
+}
+
+.accordion-body {
+    padding-left: 0;
+}
+
+/* Footer */
+.footer {
+    background: var(--gelap);
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: .85rem;
+}
+
+@media (max-width: 576px) {
+    .hero {
+        padding: 1rem;
+    }
+
+    .nav-hero a {
+        padding: .4rem .7rem;
+        font-size: .9rem;
+    }
+
+    .nav-hero a.logo {
+        padding: .7rem 1rem;
+    }
+}
