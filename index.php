@@ -23,7 +23,7 @@ $daftarKomponen = getKomponen();
     <div class="row align-items-end g-3">
         <div class="col-md-6">
             <p>Trainer kit pelatihan IoT untuk siswa SMP.<br>Rakit, coding, dan lihat hasilnya langsung di CrowPi.</p>
-            <a href="#modul" class="btn btn-putih">Lihat Semua Modul →</a>
+            <a href="modul.php" class="btn btn-putih">Lihat Semua Modul →</a>
         </div>
         <div class="col-md-5 offset-md-1">
             <div class="kartu-mulai">

@@ -97,3 +97,49 @@ function getBantuan()
         ['judul' => 'Minta bantuan pendamping',  'isi' => 'Angkat tangan atau panggil pendamping di kelas. Sebutkan modul dan langkah yang sedang kamu kerjakan.'],
     ];
 }
+
+function getModulKategori()
+{
+    return [
+        [
+            'nama' => 'Modul Dasar',
+            'modul' => [
+                ['id' => 1,  'judul' => 'Dasar LED & Buzzer',     'warna' => 'tosca',  'emoji' => '💡', 'gambar' => ['led.png', 'buzzer.png']],
+                ['id' => 3,  'judul' => 'Tombol & Input',         'warna' => 'marun',  'emoji' => '🔘', 'gambar' => ['tombol.png']],
+                ['id' => 4,  'judul' => 'Layar LCD',              'warna' => 'biru',   'emoji' => '📟', 'gambar' => ['lcd.png']],
+                ['id' => 5,  'judul' => 'Breadboard & Jumper',    'warna' => 'oranye', 'emoji' => '🧩', 'gambar' => ['breadboard.png', 'jumper.png']],
+                ['id' => 6,  'judul' => 'Pin GPIO',               'warna' => 'tosca',  'emoji' => '📍', 'gambar' => ['gpio.png']],
+            ],
+        ],
+        [
+            'nama' => 'Sensor',
+            'modul' => [
+                ['id' => 2,  'judul' => 'Sensor Suhu',            'warna' => 'oranye', 'emoji' => '🌡️', 'gambar' => ['dht11.png']],
+                ['id' => 7,  'judul' => 'Sensor Cahaya',          'warna' => 'tosca',  'emoji' => '🔆', 'gambar' => ['ldr.png']],
+                ['id' => 8,  'judul' => 'Sensor Gerak',           'warna' => 'marun',  'emoji' => '🚶', 'gambar' => ['pir.png']],
+                ['id' => 9,  'judul' => 'Sensor Jarak',           'warna' => 'biru',   'emoji' => '📏', 'gambar' => ['ultrasonik.png']],
+                ['id' => 10, 'judul' => 'Sensor Sentuh',          'warna' => 'oranye', 'emoji' => '👆', 'gambar' => ['sentuh.png']],
+            ],
+        ],
+        [
+            'nama' => 'Logika',
+            'modul' => [
+                ['id' => 11, 'judul' => 'Variabel & Tipe Data',   'warna' => 'biru',   'emoji' => '📦', 'gambar' => []],
+                ['id' => 12, 'judul' => 'Percabangan If-Else',    'warna' => 'tosca',  'emoji' => '🔀', 'gambar' => ['led.png', 'tombol.png']],
+                ['id' => 13, 'judul' => 'Perulangan LED',         'warna' => 'oranye', 'emoji' => '🔁', 'gambar' => ['led.png']],
+                ['id' => 14, 'judul' => 'Fungsi di Python',       'warna' => 'marun',  'emoji' => '🧠', 'gambar' => []],
+                ['id' => 15, 'judul' => 'Logika Sensor & Output', 'warna' => 'biru',   'emoji' => '⚙️', 'gambar' => ['dht11.png', 'buzzer.png']],
+            ],
+        ],
+        [
+            'nama' => 'Mini Project',
+            'modul' => [
+                ['id' => 16, 'judul' => 'Membuat Alarm Sederhana',             'warna' => 'marun',  'emoji' => '🚨', 'gambar' => ['buzzer.png', 'tombol.png']],
+                ['id' => 17, 'judul' => 'Membuat Lampu Lalu Lintas Sederhana', 'warna' => 'tosca',  'emoji' => '🚦', 'gambar' => ['led.png']],
+                ['id' => 18, 'judul' => 'Membuat Termometer Digital Sederhana', 'warna' => 'oranye', 'emoji' => '🌡️', 'gambar' => ['dht11.png', 'lcd.png']],
+                ['id' => 19, 'judul' => 'Membuat Penghitung Tombol Sederhana', 'warna' => 'biru',   'emoji' => '🔢', 'gambar' => ['tombol.png', 'lcd.png']],
+                ['id' => 20, 'judul' => 'Membuat Pengingat Suhu Sederhana',    'warna' => 'marun',  'emoji' => '🔥', 'gambar' => ['dht11.png', 'buzzer.png', 'led.png']],
+            ],
+        ],
+    ];
+}
