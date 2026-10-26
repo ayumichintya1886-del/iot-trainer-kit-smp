@@ -589,3 +589,140 @@ h3,
     pointer-events: none;
 }
 
+/* ===== Halaman Detail Modul ===== */
+.detail-judul {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    color: var(--ungu);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-bottom: 2rem;
+}
+
+.judul-kartu {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    color: var(--ungu);
+}
+
+/* Tab */
+.tab-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin-bottom: 2rem;
+}
+
+.tab-detail a {
+    background: #fff;
+    color: var(--ungu);
+    text-decoration: none;
+    padding: .5rem 1.4rem;
+    border-radius: 2rem;
+    font-size: .9rem;
+}
+
+.tab-detail a.aktif {
+    background: var(--ungu);
+    color: #fff;
+}
+
+#video,
+#materi,
+#kode {
+    scroll-margin-top: 1.5rem;
+}
+
+/* Video */
+.video-box {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 2rem;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-box iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-kosong {
+    background: linear-gradient(135deg, #4b38a0, #2a7494);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ikon-play {
+    font-size: clamp(3rem, 10vw, 6rem);
+    color: #d9d9d9;
+    padding-left: .4rem;
+}
+
+/* Kartu isi */
+.kartu-putih {
+    background: #fff;
+    border-radius: 2rem;
+    padding: 1.5rem 2rem;
+}
+
+.daftar-langkah {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.daftar-langkah li {
+    margin-bottom: .6rem;
+    padding-left: .3rem;
+}
+
+.kartu-hasil {
+    background: var(--tosca);
+    color: #12324a;
+    border-radius: 2rem;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+}
+
+.hasil-emoji {
+    font-size: 4rem;
+    line-height: 1;
+}
+
+/* Kode */
+.kotak-kode {
+    background: var(--ungu-tua);
+    color: #fff;
+    border-radius: 1.8rem;
+    padding: 1.5rem 2rem;
+    overflow-x: auto;
+}
+
+.kotak-kode pre {
+    margin: 0;
+    color: inherit;
+    font-size: .9rem;
+    line-height: 1.7;
+}
+
+.btn-oranye {
+    background: var(--oranye);
+    color: #fff;
+}
+
+.btn-oranye:hover {
+    background: #e08c5a;
+    color: #fff;
+}
+
+.nav-bawah {
+    margin-top: 5rem;
+}
