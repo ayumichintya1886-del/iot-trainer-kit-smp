@@ -6,14 +6,21 @@ $navDiHero = true; // halaman ini pakai tombol kembali, bukan navbar
 include 'includes/header.php';
 
 $daftarKategori = getModulKategori();
+// Warna tombol pintasan, urutannya sama dengan warna latar tiap kategori
+$btnKategori = ['btn-tosca', '', 'btn-kuning', 'btn-navy'];
 ?>
 
 <div class="halaman-modul">
     <main class="wrap">
-        <a href="index.php" class="btn btn-tosca btn-kembali">← Kembali ke Beranda</a>
+        <div class="aksi-atas">
+            <a href="index.php" class="btn btn-putih btn-kembali">← Kembali ke Beranda</a>
+            <?php foreach ($daftarKategori as $i => $kat): ?>
+                <a href="#kategori-<?= $i + 1 ?>" class="btn btn-sm <?= $btnKategori[$i % 4] ?>"><?= htmlspecialchars($kat['nama']) ?></a>
+            <?php endforeach; ?>
+        </div>
 
-        <?php foreach ($daftarKategori as $kat): ?>
-            <section class="seksi-kategori">
+        <?php foreach ($daftarKategori as $i => $kat): ?>
+            <section class="seksi-kategori" id="kategori-<?= $i + 1 ?>">
                 <h2 class="judul-seksi mb-3"><?= htmlspecialchars($kat['nama']) ?></h2>
 
                 <div class="carousel-komp">
@@ -32,7 +39,7 @@ $daftarKategori = getModulKategori();
                                     <div class="bawah">
                                         <strong class="judul"><?= htmlspecialchars($m['judul']) ?></strong><br>
                                         <small class="text-white-50"><?= htmlspecialchars($kat['nama']) ?></small>
-                                        <a href="detail.php?id=<?= (int)$m['id'] ?>" class="btn btn-putih btn-sm w-100 mt-3">Buka Modul</a>
+                                        <a href="detail.php?id=<?= (int)$m['id'] ?>" class="btn btn-navy btn-sm w-100 mt-3">Buka Modul</a>
                                     </div>
                                 </div>
                             </div>
@@ -47,6 +54,25 @@ $daftarKategori = getModulKategori();
 </div>
 
 <script>
+    // Tombol kategori: gulir sampai kotak kategori berada di tengah area yang terlihat
+    // (area di bawah baris tombol yang menempel)
+    document.querySelectorAll('.aksi-atas a[href^="#kategori-"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+            const tujuan = document.querySelector(a.getAttribute('href'));
+            if (!tujuan) return;
+            e.preventDefault();
+            const batasAtas = document.querySelector('.aksi-atas').offsetHeight;
+            const ruang = window.innerHeight - batasAtas;
+            const r = tujuan.getBoundingClientRect();
+            // Kalau kotak lebih tinggi dari ruang yang ada, tempelkan di bawah baris tombol
+            const sisa = Math.max((ruang - r.height) / 2, 12);
+            window.scrollTo({
+                top: window.scrollY + r.top - batasAtas - sisa,
+                behavior: 'smooth'
+            });
+        });
+    });
+
     // Kalau gambar belum ada, tampilkan emoji sebagai pengganti
     function gambarGagal(img) {
         const atas = img.parentElement;

@@ -24,6 +24,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 75px;
     background: #9fdcff;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -44,6 +45,7 @@ h2,
 a {
     color: inherit;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .wrap {
@@ -156,6 +158,13 @@ a {
     box-shadow: 0 6px 0 #b9c8e8, 0 10px 16px rgba(0, 0, 0, .15);
 }
 
+.btn-navy {
+    --bg: var(--ink);
+    background: var(--bg);
+    color: #fff;
+    box-shadow: 0 6px 0 #001a52, 0 10px 16px rgba(0, 0, 0, .2);
+}
+
 .btn-oranye {
     --bg: #ff8a1f;
     background: var(--bg);
@@ -231,15 +240,26 @@ a {
 
 .nav-hero {
     position: relative;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    flex-wrap: wrap;
     gap: 6px;
-    padding: 8px 10px 8px 22px;
+    padding: 8px 22px;
     background: #fff;
     border: 4px solid #fff;
     border-radius: 34px;
     box-shadow: 0 6px 0 rgba(27, 42, 107, .25);
+}
+
+/* Kiri: Beranda + Komponen. Kanan: Modul + Bantuan */
+.nav-hero .nav-kiri,
+.nav-hero .nav-kanan {
+    display: flex;
+    gap: 4px;
+}
+
+.nav-hero .nav-kanan {
+    justify-content: flex-end;
 }
 
 .nav-hero a {
@@ -257,20 +277,17 @@ a {
 
 /* Logo di tengah navbar */
 .nav-hero a.logo {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    justify-self: center;
     margin: 0;
-    padding: 0;
+    padding: 0 12px;
     background: none;
     font: 800 24px 'Baloo 2', sans-serif;
     color: var(--rd);
+    white-space: nowrap;
 }
 
-/* Menu ke-4 (Modul) dan seterusnya ke kanan */
-.nav-hero a:nth-of-type(4) {
-    margin-left: auto;
+.nav-hero a.logo:hover {
+    background: none;
 }
 
 .hero.hero-kecil {
@@ -565,6 +582,8 @@ main #kenalan {
     scroll-behavior: smooth;
     padding: 20px 0;
     scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
 }
 
 .track-komp::-webkit-scrollbar {
@@ -614,7 +633,8 @@ main #kenalan {
 }
 
 .komp p {
-    font-size: 15px;
+    font-size: 18px;
+    line-height: 1.45;
     margin: 0;
 }
 
@@ -785,6 +805,10 @@ main #kenalan {
 /* =====================================================
    BANTUAN (FAQ)
    ===================================================== */
+.judul-blok + .faq {
+    margin-top: 44px;
+}
+
 .faq {
     max-width: 660px;
     background: #fff;
@@ -863,11 +887,63 @@ footer,
 }
 
 .halaman-modul .btn-kembali {
-    margin-bottom: 26px;
+    margin: 0;
 }
 
+/* Baris tombol: kembali + pintasan ke tiap kategori */
+.aksi-atas {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0 16px;
+    margin-bottom: 18px;
+}
+
+/* Latar biru penuh (tidak transparan) selebar layar di belakang tombol */
+.aksi-atas::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: #1a7fe0;
+    box-shadow: 0 6px 0 rgba(27, 42, 107, .25);
+    z-index: -1;
+}
+
+.aksi-atas .btn-sm {
+    padding: 11px 24px;
+    font-size: 16px;
+}
+
+/* Tiap kategori punya panel dengan warna latar sendiri */
 .seksi-kategori {
-    margin-bottom: 34px;
+    --panel: var(--gr);
+    margin-bottom: 40px;
+    padding: 18px 34px 12px;
+    background: var(--panel);
+    border: 6px solid #fff;
+    border-radius: 36px;
+    box-shadow: 0 10px 0 rgba(27, 42, 107, .25);
+    scroll-margin-top: 110px; /* cadangan kalau JavaScript mati */
+}
+
+.seksi-kategori:nth-of-type(4n+2) {
+    --panel: var(--rd);
+}
+
+.seksi-kategori:nth-of-type(4n+3) {
+    --panel: var(--yl);
+}
+
+.seksi-kategori:nth-of-type(4n) {
+    --panel: var(--ink);
 }
 
 .item-modul {
@@ -1106,7 +1182,7 @@ footer,
     }
 
     .komp p {
-        font-size: 14px;
+        font-size: 16.5px;
         line-height: 1.4;
     }
 
@@ -1159,7 +1235,7 @@ footer,
     }
 
     .komp p {
-        font-size: 13px;
+        font-size: 15px;
     }
 }
 
@@ -1206,29 +1282,172 @@ footer,
     }
 }
 
+/* Navbar layar kecil */
 @media (max-width: 700px) {
 
-    /* Logo kembali ke kiri di layar kecil supaya tidak menimpa menu */
+    /* Logo di atas, menu kiri & kanan di bawahnya */
+    .nav-hero {
+        grid-template-columns: 1fr 1fr;
+        padding: 8px 12px;
+    }
+
     .nav-hero a.logo {
-        position: static;
-        transform: none;
-        margin: 0 auto 0 0;
+        grid-column: 1 / -1;
+        grid-row: 1;
+        padding: 4px 0;
     }
 
-    .nav-hero a:nth-of-type(4) {
-        margin-left: 0;
+    .nav-hero .nav-kiri {
+        grid-row: 2;
     }
-}
 
-@media (max-width: 575px) {
-    .item-modul {
-        flex-basis: 80%;
+    .nav-hero .nav-kanan {
+        grid-row: 2;
+    }
+
+    .nav-hero a {
+        padding: 6px 10px;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 560px) {
     .komp {
         flex-basis: 100%;
+    }
+}
+
+/* =====================================================
+   HP: HALAMAN MODUL
+   ===================================================== */
+
+/* Layar sentuh: geser dengan jari, panah disembunyikan */
+@media (hover: none) and (pointer: coarse) {
+    .halaman-modul .panah {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .halaman-modul {
+        padding: 0 0 40px;
+    }
+
+    /* Baris tombol: latar biru penuh ke tepi layar, tombol bisa digeser */
+    .aksi-atas {
+        flex-wrap: nowrap;
+        gap: 10px;
+        overflow-x: auto;
+        margin: 0 -20px 16px; /* tembus padding .wrap (20px) */
+        padding: calc(10px + env(safe-area-inset-top, 0px)) 20px 14px;
+        background: #1a7fe0;
+        box-shadow: 0 5px 0 rgba(27, 42, 107, .25);
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .aksi-atas::before {
+        display: none; /* latar sudah di elemennya langsung */
+    }
+
+    .aksi-atas::-webkit-scrollbar {
+        display: none;
+    }
+
+    .aksi-atas .btn,
+    .aksi-atas .btn-sm {
+        flex: 0 0 auto;
+        min-height: 44px; /* target sentuh nyaman */
+        padding: 10px 18px;
+        font-size: 14px;
+        white-space: nowrap;
+        box-shadow: 0 4px 0 #8a0000, 0 6px 10px rgba(0, 0, 0, .2);
+    }
+
+    .aksi-atas .btn-putih {
+        box-shadow: 0 4px 0 #b9c8e8, 0 6px 10px rgba(0, 0, 0, .15);
+    }
+
+    .aksi-atas .btn-tosca {
+        box-shadow: 0 4px 0 #0c5230, 0 6px 10px rgba(0, 0, 0, .2);
+    }
+
+    .aksi-atas .btn-kuning {
+        box-shadow: 0 4px 0 #c49a00, 0 6px 10px rgba(0, 0, 0, .2);
+    }
+
+    .aksi-atas .btn-navy {
+        box-shadow: 0 4px 0 #001a52, 0 6px 10px rgba(0, 0, 0, .2);
+    }
+
+    /* Panel kategori lebih ramping */
+    .seksi-kategori {
+        margin-bottom: 28px;
+        padding: 12px 14px 6px;
+        border-width: 5px;
+        border-radius: 28px;
+        box-shadow: 0 7px 0 rgba(27, 42, 107, .25);
+        scroll-margin-top: 80px;
+    }
+
+    .seksi-kategori .judul-seksi {
+        font-size: clamp(24px, 7.5vw, 32px);
+        -webkit-text-stroke: 5px #002E8C;
+        text-shadow: 0 3px 0 #002E8C;
+        margin: 4px 0 0;
+    }
+
+    .halaman-modul .track-komp {
+        gap: 14px;
+        padding: 14px 2px 18px;
+        scroll-padding-inline: 2px;
+    }
+
+    /* Kartu */
+    .kartu-modul {
+        border-width: 5px;
+        border-radius: 24px;
+        box-shadow: 0 7px 0 rgba(27, 42, 107, .25);
+    }
+
+    .kartu-modul .atas {
+        height: 120px;
+        font-size: 3rem;
+        border-radius: 16px;
+    }
+
+    .kartu-modul .atas img {
+        max-width: 56px;
+        max-height: 76px;
+    }
+
+    .kartu-modul .judul {
+        font-size: 1.05rem;
+        line-height: 1.2;
+    }
+
+    .kartu-modul .btn {
+        min-height: 44px;
+        padding: 10px 14px;
+        box-shadow: 0 4px 0 #001a52, 0 6px 10px rgba(0, 0, 0, .2);
+    }
+}
+
+/* HP: 1 kartu penuh + sedikit kartu berikutnya sebagai petunjuk geser */
+@media (max-width: 575px) {
+    .item-modul {
+        flex-basis: 78%;
+    }
+}
+
+/* HP kecil (≤380px) */
+@media (max-width: 380px) {
+    .item-modul {
+        flex-basis: 86%;
+    }
+
+    .seksi-kategori {
+        padding: 10px 10px 4px;
     }
 }
 
