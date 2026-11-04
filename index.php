@@ -88,7 +88,7 @@ function tampilPemisah($no, $nama, $blok = true)
                     <h2 class="judul-seksi">Apa itu CrowPi?</h2>
                 </div>
                 <p>CrowPi adalah komputer mini berbentuk laptop yang sudah dilengkapi banyak sensor, LED, buzzer, dan layar. Kamu bisa belajar membuat alat pintar tanpa harus menyolder kabel.</p>
-                <div class="btns"><a class="btn bl" href="panduan.php?topik=crowpi">Panduan Penggunaan CrowPi</a><a class="btn gr" href="panduan.php?topik=thonny">Panduan Thonny</a></div>
+                <div class="btns"><a class="btn yl" href="panduan.php?topik=crowpi">Panduan Penggunaan CrowPi</a><a class="btn gr" href="panduan.php?topik=thonny">Panduan Thonny</a></div>
             </div>
             <div class="stage"><svg class="main" viewBox="0 0 520 400" role="img" aria-label="CrowPi">
                     <use href="#crowpi2" />
